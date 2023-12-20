@@ -1,0 +1,1604 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "API DOCUMENTATION de markect-place ",
+        "description": "swagger pour api markect-place"
+    },
+    "servers": [
+        {
+            "url": "http://localhost:5000/api/v1",
+            "description": ""
+        }
+    ],
+    "security": [
+        {
+            "BasicAuth": []
+        }
+    ],
+    "tags": [
+        {
+            "name": "utilisateurs",
+            "description": "Endpoint de gestion des utilisateurs"
+        }
+    ],
+    "paths":{
+        "http://127.0.0.1:5000/api/v1/user/login": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/userLoginSaveModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/usrerLoginResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "mot de passe ou nom d utitlisateur incorrect"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/register": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/userRegisterSaveModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/usrerRegisterResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Opération à échoué"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "http://127.0.0.1:5000/api/v1/user/validateCompte": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/uservVlidateCompteSaveModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/usrerValidateCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Code incorrect"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "http://127.0.0.1:5000/api/v1/user/reset": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/uservResetCompteSaveModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/usrerResetCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "veillez vous incrire"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/checkcode": {
+            "post": {
+                "tags": [
+                    "user"
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/uservCheckcodeCompteSaveModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Connexion réussie",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/usrerCheckcodeCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "veillez ressaye"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/forgotPassword/id": {
+            "put": {
+                "tags": [
+                    "user"
+                ],
+                "parameters":{
+                    "-in":"path",
+                    "id":"id"
+                },
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/userorgotPasswordCompteSaveModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Mot de passe mis ajour",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/usrerforgotPasswordCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "veillez ressaye"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/getAllUser": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/usrergetAllUserCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/getUser/id": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/usrergetUserCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/updadteUser/id": {
+            "put": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/updadteUserCompteResponseModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "mise à jour du compte réussi."
+                    },
+                    "401": {
+                        "description": "veillez mettre à jour vos information."
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/profil/profil/id": {
+            "post": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/usrerProfilCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/user/profil/id": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/usrerProfilCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/materials": {
+            "post": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/materialsCompteResponseModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/materialsCompteReauestModel"
+                                }
+                            }
+                        }
+                    },
+                    "401": {
+                        "description": "Article n‘as pas été créer  veillez ressayé"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "http://127.0.0.1:5000/api/v1/material/allmaterials": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/allmaterialsCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/getmaterial/id": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/getmaterialsCompteResponseModel"
+                                }
+                            }
+                        }
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "http://127.0.0.1:5000/api/v1/material/material/id": {
+            "patch": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/updatematerialsCompteResponseModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "mise à jour de l‘article réussi avec succès!"
+                    },
+                    "401": {
+                        "description": "Veillez apporté un changement sur au moins un champ!"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/material/id": {
+            "delete": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "description": "Article supprimé avec succès!!"
+                    },
+                    "401": {
+                        "description": "Article n‘existe pas"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/likers/id": {
+            "post": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/likematerialsCompteResponseModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "liker"
+                       
+                    },
+                    "401": {
+                        "description": "Article n‘existe pas"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/likers/idmaterial": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/likerstematerialsCompteResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "http://127.0.0.1:5000/api/v1/material/image/id": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/getImagetematerialsCompteResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/materials/image/id": {
+            "post": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/createImagematerialsCompteRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/createImagematerialsCompteResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/materials/image/id/image": {
+            "put": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/updateImagematerialsCompteRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/updateImagematerialsCompteResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/material/materials/image/delet/id/image": {
+            "delete": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/deleteImagematerialsCompteRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description":"Image supprimer"
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/categorie/categories": {
+            "post": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/createCategorieCompteRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description":"Categories créer avec succès"
+                       
+                    },
+                    "403": {
+                        "description": "la Categorie existe!"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/categorie/allcategories": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/getAllCategorieCompteResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "403": {
+                        "description": "la Categorie existe!"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/categorie/getcategorie/id": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/getcategorieCategorieCompteResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/categorie/id": {
+            "patch": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/updatecategorieCategorieCompteReauestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "message":  "Mise à jour de la catégorie réussi avec succès!"
+                       
+                    },
+                    "401": {
+                        "description": "Erreur de mise à jour  veillez ressayé"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "/api/v1/categorie/id": {
+            "delete": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/deletecategorieCategorieCompteReauestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "message":  "Catégorie supprimé avec succès!"
+                       
+                    },
+                    "401": {
+                        "description": "Veillez supprmé dabord les articles qui contient ce catégorie!"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/card": {
+            "post": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/cardSaveReauestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/cardResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        " http://127.0.0.1:5000/api/v1/card/id": {
+            "patch": {
+                "tags": ["user"],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateRequestModel"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/updateResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "/api/v1/card/": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/getResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "/card/id": {
+            "delete": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                       "description":"panier supprimer avec succès"
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        },
+        "/api/v1/card/id": {
+            "get": {
+                "tags": ["user"],
+                "responses": {
+                    "200": {
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/getAllResponseModel"
+                                }
+                            }
+                        }
+                       
+                    },
+                    "500": {
+                        "description": "erreur serveur"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "usrergetAllUserCompteResponseModel": {
+            "description": "getAllUser save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "username": {
+                        "type":"string"
+                    }, 
+                    "isValid": {
+                        "type":"boolean"
+                    },
+                    "email": {
+                        "type":"string"
+                    },
+                    "phone": {
+                        "type":"integer"
+                    },
+                    "role": {
+                        "type":"string"
+                    },
+                    "created_at": {
+                        "type":"string"
+                    },
+                    "updated_at": {
+                        "type":"string"
+                    }
+            }
+        },
+        "usrergetUserCompteResponseModel": {
+            "description": "getUser save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "username": {
+                        "type":"string"
+                    }, 
+                    "isValid": {
+                        "type":"boolean"
+                    },
+                    "email": {
+                        "type":"string"
+                    },
+                    "phone": {
+                        "type":"integer"
+                    },
+                    "role": {
+                        "type":"string"
+                    },
+                    "created_at": {
+                        "type":"string"
+                    },
+                    "updated_at": {
+                        "type":"string"
+                    }
+            }
+        },
+        "usrerProfilCompteResponseModel": {
+            "description": "ProfilUser save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "profil": {
+                        "type":"string"
+                    }, 
+                    "userId": {
+                        "type":"integer"
+                    },
+                    "created_at": {
+                        "type":"string"
+                    },
+                    "updated_at": {
+                        "type":"string"
+                    }
+            }
+        },
+
+        "updadteUserCompteResponseModel": {
+            "description": "getAllUser save model",
+                "type": "object",
+                "properties": {
+                    "username": {
+                        "type":"string"
+                    }, 
+                    "email": {
+                        "type":"string"
+                    },
+                    "phone": {
+                        "type":"integer"
+                    }
+            },
+            "required": ["username", "email","phone"]
+        },
+        "materialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type":"string"
+                    }, 
+                    "description": {
+                        "type":"string"
+                    },
+                    "userId": {
+                        "type":"integer"
+                    },
+                    "price1": {
+                        "type":"integer"
+                    }, 
+                    "price2": {
+                        "type":"integer"
+                    },
+                    "price3": {
+                        "type":"integer"
+                    }
+            },
+            "required": ["name", "userId","price1"]
+        },
+        "allmaterialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "material_id": {
+                        "type":"integer"
+                    }, 
+                    "description": {
+                        "type":"string"
+                    },
+                    "user_id": {
+                        "type":"integer"
+                    },
+                    "categorie_id": {
+                        "type":"integer"
+                    }, 
+                    "name": {
+                        "type":"integer"
+                    },
+                    "isSolder": {
+                        "type":"boolean"
+                    },
+                    "price1": {
+                        "type":"integer"
+                    },
+                    "price2": {
+                        "type":"integer"
+                    },
+                    "price3": {
+                        "type":"integer"
+                    }, 
+                    "created_at": {
+                        "type":"integer"
+                    },
+                    "updated_at": {
+                        "type":"boolean"
+                    }
+                }
+        },
+        "getmaterialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "material_id": {
+                        "type":"integer"
+                    }, 
+                    "description": {
+                        "type":"string"
+                    },
+                    "user_id": {
+                        "type":"integer"
+                    },
+                    "categorie_id": {
+                        "type":"integer"
+                    }, 
+                    "name": {
+                        "type":"integer"
+                    },
+                    "isSolder": {
+                        "type":"boolean"
+                    },
+                    "price1": {
+                        "type":"integer"
+                    },
+                    "price2": {
+                        "type":"integer"
+                    },
+                    "price3": {
+                        "type":"integer"
+                    }, 
+                    "created_at": {
+                        "type":"integer"
+                    },
+                    "updated_at": {
+                        "type":"boolean"
+                    }
+                }
+        },
+        "likematerialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "materialId": {
+                        "type":"integer"
+                    }
+                },
+                "required": ["materialId"]
+        },
+        "updatematerialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "description": {
+                        "type":"string"
+                    },
+                    "name": {
+                        "type":"integer"
+                    },
+                    "user_id": {
+                        "type":"integer"
+                    },
+                    "price1": {
+                        "type":"integer"
+                    },
+                    "price2": {
+                        "type":"integer"
+                    },
+                    "price3": {
+                        "type":"integer"
+                    }
+                }
+        },
+        "likerstematerialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "number": {
+                        "type":"integer"
+                    }
+                   
+                }
+        },
+        "getImagetematerialsCompteResponseModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "image1": {
+                        "type":"string"
+                    },
+                    "image2": {
+                        "type":"string"
+                    },
+                    "image3": {
+                        "type":"string"
+                    },
+                    "image4": {
+                        "type":"string"
+                    },
+                    "image5": {
+                        "type":"string"
+                    },
+                    "image6": {
+                        "type":"string"
+                    },
+                    "material_id": {
+                        "type":"integer"
+                    }
+                   
+                }
+        },
+        "materialsCompteReauestModel": {
+            "description": " materials save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "user_id": {
+                        "type":"integer"
+                    },
+                    "categorie_id": {
+                        "type":"integre"
+                    },
+                    "name": {
+                        "type":"string"
+                    },
+                    "description": {
+                        "type":"string"
+                    },
+                    "image5": {
+                        "type":"string"
+                    },
+                    "image6": {
+                        "type":"string"
+                    },
+                    "material_id": {
+                        "type":"integer"
+                    }
+                   
+                }
+        },
+        "createImagematerialsCompteRequestModel": {
+            "description": " Image materials save model",
+                "type": "object",
+                "properties": {
+                    "image1": {
+                        "type":"integer"
+                    },
+                    "image2": {
+                        "type":"integre"
+                    },
+                    "image3": {
+                        "type":"string"
+                    },
+                    "image4": {
+                        "type":"string"
+                    },
+                    "image5": {
+                        "type":"string"
+                    },
+                    "image6": {
+                        "type":"string"
+                    },
+                    "material_id": {
+                        "type":"integer"
+                    }
+                   
+                },"reauired":["material_id", "image1", "image2", "image3", "image4"]
+        },
+        "createImagematerialsCompteResponseModel": {
+            "description": "images materials save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "image1": {
+                        "type":"integer"
+                    },
+                    "image2": {
+                        "type":"integre"
+                    },
+                    "image3": {
+                        "type":"string"
+                    },
+                    "image4": {
+                        "type":"string"
+                    },
+                    "image5": {
+                        "type":"string"
+                    },
+                    "image6": {
+                        "type":"string"
+                    },
+                    "material_id": {
+                        "type":"integer"
+                    }
+                   
+                }
+        },
+        "updateImagematerialsCompteRequestModel": {
+            "description": " Image materials save model",
+                "type": "object",
+                "properties": {
+                    "image_[1_6]": {
+                        "type":"string"
+                    }
+                },"reauired":["material_id", "image1", "image2", "image3", "image4"]
+        },
+        "updateImagematerialsCompteResponseModel": {
+            "description": "images materials save model",
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type":"integer"
+                    },
+                    "image1": {
+                        "type":"integer"
+                    },
+                    "image2": {
+                        "type":"integre"
+                    },
+                    "image3": {
+                        "type":"string"
+                    },
+                    "image4": {
+                        "type":"string"
+                    },
+                    "image5": {
+                        "type":"string"
+                    },
+                    "image6": {
+                        "type":"string"
+                    },
+                    "material_id": {
+                        "type":"integer"
+                    }
+                   
+                }
+        },
+        "deleteImagematerialsCompteRequestModel": {
+            "description": " Image materials save model",
+                "type": "object",
+                "properties": {
+                    "image_[1_6]": {
+                        "type":"string"
+                    }
+                },"reauired":["material_id", "image"]
+        },
+        "createCategorieCompteRequestModel": {
+            "description": " Image materials save model",
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type":"string"
+                    }
+                },"reauired":["material_id", "image"]
+        },
+        "getAllCategorieCompteResponseModel": {
+            "description": " Image materials save model",
+            "type":"object",
+            "properties": {
+                "id": {
+                    "type":"string"
+                },
+                "name": {
+                    "type":"string"
+                },
+                "created_at": {
+                    "type":"string"
+                },
+                "updated_at": {
+                    "type":"string"
+                }
+            }
+        },
+        "getcategorieCategorieCompteResponseModel": {
+            "description": " Image materials save model",
+            "type":"object",
+            "properties": {
+                "id": {
+                    "type":"string"
+                },
+                "name": {
+                    "type":"string"
+                },
+                "created_at": {
+                    "type":"string"
+                },
+                "updated_at": {
+                    "type":"string"
+                }
+            }
+        },
+        "updatecategorieCategorieCompteReauestModel": {
+            "description": "Reset save model",
+            "type": "object",
+            "properties": {
+                "name ": {
+                    "type": "string"
+                }
+               
+              
+        }, "required": ["name"]
+        },
+        "deletecategorieCategorieCompteReauestModel": {
+            "description": "Reset save model",
+            "type": "object",
+            "properties": {
+                "id ": {
+                    "type": "integer"
+                }
+            
+            
+        }, "required": ["name"]
+         },
+         "getResponseModel": {
+            "description": "Reset save model",
+            "type": "object",
+            "properties": {
+                "id ": {
+                    "type": "integer"
+                },
+                "user_id ": {
+                    "type": "integer"
+                },
+                "categorie_id ": {
+                    "type": "integer"
+                },
+                "nombre ": {
+                    "type": "integer"
+                },
+                "total ": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+        },"required": ["name"]
+         },
+         "getAllResponseModel": {
+            "description": "Reset save model",
+            "type": "object",
+            "properties": {
+                "id ": {
+                    "type": "integer"
+                },
+                "user_id ": {
+                    "type": "integer"
+                },
+                "categorie_id ": {
+                    "type": "integer"
+                },
+                "nombre ": {
+                    "type": "integer"
+                },
+                "total ": {
+                    "type": "integer"
+                },
+                "created_at": {
+                    "type": "string"
+                },
+                "updated_at": {
+                    "type": "string"
+                }
+        },"required": ["name"]
+         },
+        "schemas": {
+            "userLoginSaveModel": {
+                "type": "object",
+                "properties": {
+                "login": {
+                    "type": "string"
+                },
+                "password": {
+                    "type": "string"
+                }
+                },
+                "required": ["login", "password"]
+            },
+            "usrerLoginResponseModel": {
+                "description": "admin login save model",
+                "type": "object",
+                "properties": {
+                    "token": {
+                        "type": "string"
+                    }
+                }
+            },
+            "userRegisterSaveModel": {
+                "type": "object",
+                "properties": {
+                "username ": {
+                    "type": "string"
+                },
+                "email": {
+                    "type": "string"
+                },
+                "phone": {
+                    "type": "string"
+                },
+                "role": {
+                    "type": "string"
+                },
+                "idAppareil": {
+                    "type": "string"
+                },
+                "typeAppareil": {
+                    "type": "string"
+                },"password": {
+                    "type": "string"
+                },
+                "required": ["username", "email","phone", "role", "idAppareil", "typeAppareil", "password"]
+            }
+            },
+            "usrerRegisterResponseModel": {
+                "description": "Register save model",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        },
+                        "codeMessage": {
+                            "type": "integer"
+                        },
+                        "email": {
+                            "type": "string"
+                        },
+                        "phone": {
+                            "type": "integer"
+                        }
+                }
+            },
+            "uservVlidateCompteSaveModel": {
+                "type": "object",
+                "properties": {
+                "codeMessage ": {
+                    "type": "integer"
+                },
+                "phone": {
+                    "type": "integer"
+                },
+                "required": ["codeMessage", "phone"]
+            }
+            },
+            "usrerValidateCompteResponseModel": {
+                "description": "Register save model",
+                    "type": "object",
+                    "properties": {
+                        "token": {
+                            "type": "string"
+                        }
+                }
+            },
+            "uservResetCompteSaveModel": {
+                "description": "Reset save model",
+                "type": "object",
+                "properties": {
+                    "coordinate ": {
+                        "type": "integer"
+                    }
+                  
+            }
+            },
+            "usrerResetCompteResponseModel": {
+                "description": "Register save model",
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "integer"
+                        },
+                        "codeMessage": {
+                            "type": "integer"
+                        }
+                }
+            },
+            "uservCheckcodeCompteSaveModel": {
+                "description": "Reset save model",
+                "type": "object",
+                "properties": {
+                    "id ": {
+                        "type": "integer"
+                    },
+                    "codeMessage ": {
+                        "type": "integer"
+                    },
+                    "required": ["id", "codeMessage"]
+                  
+            }
+            },
+            "usrerCheckcodeCompteResponseModel": {
+                "description": "checkcode save model",
+                    "type": "object",
+                    "properties": {
+                        "isValideCode": {
+                            "type":"boolean"
+                        }
+                }
+            },
+            "userorgotPasswordCompteSaveModel": {
+                "description": "Reset save model",
+                "type": "object",
+                "properties": {
+                    "password ": {
+                        "type": "string"
+                    },
+                    "required": ["password"]
+                  
+            }
+            },
+            "usrerforgotPasswordCompteResponseModel": {
+                "description": "checkcode save model",
+                    "type": "object",
+                    "properties": {
+                        "isValideCode": {
+                            "type":"boolean"
+                        }
+                }
+            },
+            "cardSaveReauestModel": {
+                "description": "Reset save model",
+                "type": "object",
+                "properties": {
+                    "user_id ": {
+                        "type": "integer"
+                    },
+                    "categorie_id ": {
+                        "type": "integer"
+                    },
+                    "nombre ": {
+                        "type": "integer"
+                    },
+                    "total ": {
+                        "type": "integer"
+                    }
+            },
+            "required": ["user_id", "categorie_id", "id", "nombre", "total"]
+            },
+            "cardResponseModel": {
+                "description": "checkcode save model",
+                    "type": "object",
+                    "properties": {
+                        "id ": {
+                            "type": "integer"
+                        },
+                        "user_id ": {
+                            "type": "integer"
+                        },
+                        "categorie_id ": {
+                            "type": "integer"
+                        },
+                        "nombre ": {
+                            "type": "integer"
+                        },
+                        "total ": {
+                            "type": "integer"
+                        },
+                        "created_at": {
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "type": "string"
+                        }
+                }
+            },
+            "updateRequestModel": {
+                "description": "Reset save model",
+                "type": "object",
+                "properties": {
+                    "nombre ": {
+                        "type": "integer"
+                    },
+                    "total ": {
+                        "type": "integer"
+                    }
+            },
+            "required": ["user_id", "categorie_id", "id", "nombre", "total"]
+            },
+            "updateResponseModel": {
+                "description": "checkcode save model",
+                    "type": "object",
+                    "properties": {
+                        "id ": {
+                            "type": "integer"
+                        },
+                        "user_id ": {
+                            "type": "integer"
+                        },
+                        "categorie_id ": {
+                            "type": "integer"
+                        },
+                        "nombre ": {
+                            "type": "integer"
+                        },
+                        "total ": {
+                            "type": "integer"
+                        },
+                        "created_at": {
+                            "type": "string"
+                        },
+                        "updated_at": {
+                            "type": "string"
+                        }
+                }
+            }
+           
+      }
+    }
+}
